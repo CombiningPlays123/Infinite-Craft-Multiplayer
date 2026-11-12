@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Infinite Craft Multiplayer</title>
+<meta name="description" content="Race or co-op with up to 3 friends in the original Infinite Craft. No extension needed - one console snippet.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="logo">∞</div>
+  <h1>Infinite Craft <span>Multiplayer</span></h1>
+  <p>Up to 4 friends. Submit a target, vote on it, then <b>race</b> to craft it - or <b>build together</b> in one shared world. Played in the real Infinite Craft. <b>No browser extension.</b></p>
+  <div class="modes">
+    <div class="m comp"><b>⚔ Competition</b><span>Everyone has their own board. First verified craft of the target wins.</span></div>
+    <div class="m shared"><b>🤝 Shared</b><span>One shared inventory. Every discovery appears for everyone. Beat the clock together.</span></div>
+  </div>
+</header>
+
+<main>
+  <section class="card" id="install">
+    <h2>Install in 20 seconds</h2>
+    <ol class="steps">
+      <li>Open <a href="https://neal.fun/infinite-craft/" target="_blank" rel="noopener">neal.fun/infinite-craft</a>.</li>
+      <li>Open Developer Tools → <b>Console</b> (<kbd>F12</kbd>, or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>J</kbd>; <kbd>⌥</kbd><kbd>⌘</kbd><kbd>J</kbd> on Mac).</li>
+      <li>Paste this and press <kbd>Enter</kbd>:</li>
+    </ol>
+    <div class="snippet">
+      <pre id="snippet">Loading…</pre>
+      <button id="copy" class="btn">Copy</button>
+    </div>
+    <p id="copied" class="note" hidden>Copied! Now paste it into the console of the Infinite Craft tab.</p>
+    <p class="note">The snippet only loads one script, <code id="clientUrl">…</code>, into the game tab. It does nothing else, and you can read that file first. After a page refresh, press <kbd>↑</kbd> then <kbd>Enter</kbd> in the console to run it again - your room is rejoined automatically.</p>
+    <p id="reach" class="status">Checking the multiplayer script…</p>
+    <p class="note warnbox">Chrome/Edge may ask you to type <code>allow pasting</code> in the console the first time. That is the browser's own safety prompt - type it, then paste again.</p>
+  </section>
+
+  <section class="card">
+    <h2>Other ways to load it</h2>
+    <h3>Bookmarklet (still no extension)</h3>
+    <p>Drag this button to your bookmarks bar, open Infinite Craft, then click the bookmark:</p>
+    <p><a id="bookmarklet" class="btn primary" href="#">∞ Infinite Craft Multiplayer</a></p>
+    <p class="note">If your bookmarks bar is locked, create a bookmark by hand and paste the snippet above (prefixed with <code>javascript:</code>) as its URL.</p>
+    <h3>Standalone launcher page?</h3>
+    <p class="note">Not possible, and we checked: Infinite Craft refuses to be embedded in other sites (a <code>frame-ancestors</code> policy) and browsers do not let one site control another, so a launcher page cannot drive the real game. The console snippet and the bookmarklet are the only extension-free ways in.</p>
+  </section>
+
+  <section class="card">
+    <h2>School or work computers</h2>
+    <p>Nothing here needs admin rights or installs anything, but managed devices may still block it. Honest list of what can go wrong:</p>
+    <ul>
+      <li><b>Developer Tools disabled by policy</b> - the console won't open. Bookmarklets may still work.</li>
+      <li><b>Pasting into the console / javascript: URLs blocked</b> by policy or a content filter.</li>
+      <li><b>The network blocks the script host or the multiplayer server</b> - the snippet shows an alert.</li>
+      <li>Infinite Craft itself may be blocked (it is a game).</li>
+    </ul>
+    <p class="note">We don't provide ways around such restrictions; if your network blocks it, it is blocked.</p>
+  </section>
+
+  <section class="card">
+    <h2>How a game goes</h2>
+    <ol>
+      <li><b>Create / join</b> a room with a 5-letter code (max 4 players, 2 to start). The host picks the mode and timer (1-30 min or unlimited).</li>
+      <li><b>Everyone submits one element</b> they want the group to craft. Nothing is shown until all are in.</li>
+      <li><b>Vote.</b> One final, hidden vote each; no voting for yourself; ties are broken randomly by the server.</li>
+      <li><b>Play.</b> Everyone starts at the same server-timed GO. The server verifies the winning craft and keeps the clock.</li>
+    </ol>
+    <p class="note">Use an <b>empty save slot</b> for each round (the game has 3). Multiplayer never deletes or edits your saves; it warns you if a slot contains elements that aren't part of the round.</p>
+  </section>
+</main>
+<footer>Unofficial fan project - not affiliated with or endorsed by neal.fun. Uses the original game in your own browser.</footer>
+<script src="app.js"></script>
+</body>
+</html>
